@@ -1,0 +1,29 @@
+services:
+  backend:
+    build: ./back
+    container_name: back-nitro
+    ports:
+      - "5000:5000"
+    networks:
+      - app-network
+    volumes:
+      - ./back:/app
+    environment:
+      - FLASK_ENV=development
+    depends_on:
+      - frontend
+
+  frontend:
+    build: ./front 
+    container_name: front-nitro
+    ports:
+      - "3000:3000"
+    networks:
+      - app-network
+    volumes:
+      - ./front:/app
+      - /app/node_modules
+
+networks:
+  app-network:
+    driver: bridge

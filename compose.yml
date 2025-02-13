@@ -88,7 +88,7 @@ services:
       KAFKA_LISTENERS: PLAINTEXT://:9092,INTERNAL://:9093
       KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092, INTERNAL://kafka:9093
       KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
-      KAFKA_CREATE_TOPICS: "message:1:1,ia:1:1,send_inapropriete_message:1:1,post_message:1:1,get_message:1:1"
+      KAFKA_CREATE_TOPICS: "message:1:1,ia:1:1,send_inapropriete_message:1:1,post_messages:1:1,get_messages:1:1"
       KAFKA_LOG_RETENTION_BYTES: 1073741824
     depends_on:
       - zookeeper
@@ -109,10 +109,9 @@ services:
     environment:
       - NIFI_WEB_HTTP_PORT=8080
     volumes:
-      - nifi_data:/opt/nifi/nifi-current/data
-      - ./nifi_conf/hadoop:/opt/nifi/conf/hadoop
-      - ./nifi_conf/nifi-hadoop-nar-2.2.0.nar:/opt/nifi/nifi-current/lib/nifi-hadoop-nar-2.2.0.nar
-      - ./nifi_conf/nifi-hadoop-libraries-nar-2.2.0.nar:/opt/nifi/nifi-current/lib/nifi-hadoop-libraries-nar-2.2.0.nar
+      - ./nifi/conf/hadoop:/opt/nifi/conf/hadoop
+      - ./nifi/extension/nifi-hadoop-nar-2.2.0.nar:/opt/nifi/nifi-current/lib/nifi-hadoop-nar-2.2.0.nar
+      - ./nifi/extension/nifi-hadoop-libraries-nar-2.2.0.nar:/opt/nifi/nifi-current/lib/nifi-hadoop-libraries-nar-2.2.0.nar
     depends_on:
       - kafka
   

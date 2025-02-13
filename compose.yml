@@ -108,10 +108,6 @@ services:
       - "8443:8443"
     environment:
       - NIFI_WEB_HTTP_PORT=8080
-    volumes:
-      - ./nifi/conf/hadoop:/opt/nifi/conf/hadoop
-      - ./nifi/extensions/nifi-hadoop-nar-2.2.0.nar:/opt/nifi/nifi-current/lib/nifi-hadoop-nar-2.2.0.nar
-      - ./nifi/extensions/nifi-hadoop-libraries-nar-2.2.0.nar:/opt/nifi/nifi-current/lib/nifi-hadoop-libraries-nar-2.2.0.nar
     depends_on:
       - kafka
   

@@ -113,11 +113,6 @@ services:
       - ./nifi_conf/hadoop:/opt/nifi/conf/hadoop
       - ./nifi_conf/nifi-hadoop-nar-2.2.0.nar:/opt/nifi/nifi-current/lib/nifi-hadoop-nar-2.2.0.nar
       - ./nifi_conf/nifi-hadoop-libraries-nar-2.2.0.nar:/opt/nifi/nifi-current/lib/nifi-hadoop-libraries-nar-2.2.0.nar
-      - ./nifi_conf/nifi-hive-nar-1.28.1.nar:/opt/nifi/nifi-current/lib/nifi-hive-nar-1.28.1.nar
-      - ./nifi_conf/hive-jdbc-4.0.1.jar:/opt/nifi/nifi-current/lib/hive-jdbc-4.0.1.jar
-      - ./nifi_conf/nifi-hive-service-api-nar-2.0.0-M2.nar:/opt/nifi/nifi-current/lib/nifi-hive-service-api-nar-2.0.0-M2.nar
-      - ./nifi_conf/nifi-hive-service-api-nar-2.0.0-M1.nar:/opt/nifi/nifi-current/lib/nifi-hive-service-api-nar-2.0.0-M1.nar
-      - ./nifi_conf/nifi-hive-services-api-1.28.1.jar:/opt/nifi/nifi-current/lib/nifi-hive-services-api-1.28.1.jar
     depends_on:
       - kafka
   

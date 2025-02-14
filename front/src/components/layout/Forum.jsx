@@ -5,23 +5,23 @@ import Message from "../chat/Message";
 const Forum = ({username}) => {
     const [posts, setPosts] = useState([]);
     const [content, setContent] = useState("");
+    const [refreshTrigger, setRefreshTrigger] = useState(false);
 
     useEffect(() => {
       fetch("http://localhost:5000/api/messages/0")
         .then((res) => res.json())
         .then((data) => setPosts(data));
-    }, []);
+    }, [refreshTrigger]);
   
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
       e.preventDefault();
-      fetch("http://localhost:5000/api/messages", {
+      await fetch("http://localhost:5000/api/messages", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ user_id: username, message: content }),
       })
-        .then((res) => res.json())
-        .then((newPost) => setPosts([...posts, newPost]));
       setContent("");
+      setRefreshTrigger(prev => !prev);
     };
   
     return (
@@ -30,7 +30,7 @@ const Forum = ({username}) => {
         <header className="bg-white p-4 border-b border-gray-300">
             <div className="flex items-center">
                 <div className="ml-3">
-                <h1 className="text-xl font-semibold">Erwan</h1>
+                  <h1 className="text-xl font-semibold">{username}</h1>
                 </div>
             </div>
         </header>

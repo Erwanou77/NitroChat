@@ -1,5 +1,3 @@
-import { formatMessageDate } from '../../utils/dateFormatter';
-
 const Message = ({ message }) => {
   const isOutgoing = message.sender === 'me';
 
@@ -10,9 +8,8 @@ const Message = ({ message }) => {
           isOutgoing ? 'bg-indigo-500 text-white' : 'bg-white text-gray-800'
         }`}
       >
-        <p className="break-words">{message.content}</p>
+        <p className="break-words">{message.message}</p>
         <span className={`text-xs ${isOutgoing ? 'text-indigo-100' : 'text-gray-500'} block mt-1`}>
-          {/* {formatMessageDate(message.Created_At)} */}
         </span>
       </div>
     </div>

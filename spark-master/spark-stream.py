@@ -15,10 +15,11 @@ kafka_broker = "kafka:9092"
 # Define schema for JSON data
 schema = StructType([
     StructField("id", StringType(), True),
-    StructField("messages", LongType(), True),
-    StructField("timestamp", LongType(), True),
-    StructField("user", DoubleType(), True),
-    StructField("type", StringType(), True)
+    StructField("messages", StringType(), True),
+    StructField("Created_At", StringType(), True),
+    StructField("user_id", DoubleType(), True),
+    StructField("type", StringType(), True),
+    StructField("chat_id", StringType(), True),
 ])
 
 # Function to read, process, and write each topic to HDFS

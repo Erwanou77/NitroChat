@@ -88,7 +88,7 @@ services:
       KAFKA_LISTENERS: PLAINTEXT://:9092,INTERNAL://:9093
       KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092, INTERNAL://kafka:9093
       KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
-      KAFKA_CREATE_TOPICS: "message:1:1,ia:1:1,send_inapropriete_message:1:1,post_messages:1:1,get_messages:1:1"
+      KAFKA_CREATE_TOPICS: "message:1:1,send_inappropriete_message:1:1,post_messages:1:1,get_messages:1:1"
       KAFKA_LOG_RETENTION_BYTES: 1073741824
     depends_on:
       - zookeeper
@@ -128,4 +128,3 @@ volumes:
   hadoop_namenode:
   hadoop_datanode:
   hadoop_historyserver:
-  nifi_data:

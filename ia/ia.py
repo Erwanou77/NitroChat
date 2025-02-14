@@ -1,17 +1,12 @@
 from flask import Flask, request, jsonify
-import codecs
-
 
 flask = Flask(__name__)
 
-print(f"bit")
 @flask.route('/ia', methods=['POST'])
 def send_data():
-    # data = codecs.decode(request., 'hex').decode('utf-8')
-    print(f"aled")
+    flask.logger.info("get data")
     data = request.get_json()
-    print(f"Sent data: {data}")
-    return jsonify({'status': 'success'})
+    return jsonify(data)
 
 if __name__ == '__main__':
     flask.run(host='0.0.0.0', port=5052, debug=True)
